@@ -3247,7 +3247,7 @@ footer {
 /* ===== SECCIÓN DE CONTADORES ANIMADOS ===== */
 .stats-section {
     padding: 80px 20px;
-    background: url('imagenes/fondo_contador.png');
+    background: url('fondo_contador.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -3694,4 +3694,5 @@ footer {
         height: 56px;
         font-size: 20px;
     }
+
 }
