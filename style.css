@@ -1488,7 +1488,8 @@ a,
     }
 
     .principios-section {
-        padding: 40px 20px;
+        padding: 60px 40px;
+        background: white;
     }
 
     .principios-title {
@@ -1497,8 +1498,12 @@ a,
     }
 
     .principios-grid {
-        grid-template-columns: 1fr;
-        gap: 28px;
+        text-align: center;
+        color: var(--color-accent--);
+        font-size: 32px;
+        margin-bottom: 50px;
+        margin-top: 0;
+    
     }
 
     .principio-bloque img {
@@ -3696,3 +3701,4 @@ footer {
     }
 
 }
+
