@@ -1,46 +1,1141 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cooperativa El Progreso</title>
-</head>
-<body>
-    <nav>
-        <ul>
-            <li class="nav-item">
-                <button class="nav-link" data-page="galeria"> Galería</button>
-            </li>
-            
-            <!-- ... other nav items ... -->
-        </ul>
-    </nav>
+  <meta charset="UTF-8">
+  <title>Cooperativa El Progreso RL</title>
+  <link rel="icon" type="image/x-icon" href="logo.ico">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="style.css?v=15">
 
-    <div class="content">
-        <!-- Your content goes here -->
+</head>
+
+<body>
+<div class="layout">
+  <!-- Overlay para menú móvil -->
+  <div class="mobile-overlay"></div>
+  
+  <!-- Header Sticky -->
+    <header class="header-sticky site-header">
+        <div class="header-bar">
+            <div class="brand" data-page="home">
+                <img src="logo.png" alt="Cooperativa">
+                <span>Cooperativa El Progreso R.L.</span>
+            </div>
+
+            <!-- Botón hamburguesa para móviles -->
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span class="hamburger"></span>
+            </button>
+
+            <nav class="nav-main">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <button class="nav-link is-active" data-page="home"> Inicio</button>
+                    </li>
+
+                    <li class="nav-item has-dropdown">
+                        <button class="nav-link dropdown-trigger"> Nosotros<span class="chevron">▾</span></button>
+                        <ul class="dropdown">
+                            <li><button data-page="mision">Misión y Visión</button></li>
+                            <li><button data-page="historia">Historia</button></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item has-dropdown">
+                        <button class="nav-link dropdown-trigger"> Servicios<span class="chevron">▾</span></button>
+                        <ul class="dropdown">
+                            <li><button data-page="prestamos">Préstamos</button></li>
+                            <li><button data-page="beneficios">Beneficios</button></li>
+                            <li><button data-page="servicios">Nuestros servicios</button></li>
+                        </ul>
+                    </li>
+
+                  
+
+                    <li class="nav-item">
+                        <button class="nav-link" data-page="contacto"> Contacto</button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+  <!-- Slider -->
+  <div class="slider-wrapper">
+    <div class="slider">
+        <img id="slider-1" src="unido.png" alt="Navidad">
+        <img id="slider-2" src="prestamos.png" alt="Ganadería">
+        <img id="slider-3" src="prom3.png" alt="Promoción 3">
+        <img id="slider-4" src="prueba.png" alt="Prueba">
+    </div>
+    <div class="slider-nav">
+        <a href="javascript:void(0)" onclick="goToSlide(0); return false;"></a>   
+        <a href="javascript:void(0)" onclick="goToSlide(1); return false;"></a>  
+        <a href="javascript:void(0)" onclick="goToSlide(2); return false;"></a>  
+        <a href="javascript:void(0)" onclick="goToSlide(3); return false;"></a>  
+    </div>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+
+    <!-- Contenedor dinámico -->
+    <div id="page-content">
+      <!-- Contenido inicial HOME -->
+      <section class="hero">
+        <h3>Cooperativa Agropecuaria El Progreso</h3>
+      </section>
     </div>
 
-    <script>
-        const pages = {
-            servicios: `
-            <section class="hero">
-                <h1>Servicios</h1>
-                <p>Aquí puedes agregar tu contenido de servicios</p>
-            </section>
-            `,
-            galeria: `
-            <section class="hero">
-                <h1>Galería</h1>
-                <p>Aquí puedes agregar tu contenido de galería</p>
-            </section>
+    <!-- Footer fijo -->
+    <footer>
+      <div class="footer-content">
+        <small> © Copyright 2026  Cooperativa El Progreso R.L. | Todos los Derechos Reservados.</small>
+        
+        <div class="footer-links">
+        
+          <span>|</span>
+          <a href="#" onclick="loadPolicies('terminos')">Términos y Condiciones</a>
+        </div>
+      </div>
+    </footer>
 
-            <!-- Sección en blanco para agregar tu contenido -->
-            <section class="cards-container">
-                <!-- Tu contenido aquí -->
-            </section>
-            `,
-            // ... other pages ...
+  </div>
+
+</div>
+
+<!-- JS para contenido dinámico -->
+<script>
+const pages = {
+    home: `
+    <section class="hero-with-image">
+        <div class="hero-content">
+          
+            <h1>Nuestra Misión y Visión</h1>
+            <p>Conoce los pilares que guían nuestro trabajo y fortalecen nuestra cooperativa, impulsando el desarrollo de nuestros asociados y el sector agropecuario.</p>
+            <button class="btn-card" onclick="loadPage('mision')">Descubre más</button>
+        </div>
+        <div class="hero-image">
+            <img src="silos.png" alt="Misión y Visión">
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="services-container">
+            <h2 class="services-title">Nuestros Servicios</h2>
+            
+            <div class="services-grid">
+                <!-- Servicio 1: Estación de Combustible -->
+                <div class="service-card">
+                    <div class="service-icon-wrapper">
+                        <img src="combustible.png" alt="Estación de Combustible" class="service-icon">
+                    </div>
+                    <h3 class="service-name">Estación de Combustible</h3>
+                </div>
+
+                <!-- Servicio 2: Ahorros -->
+                <div class="service-card">
+                    <div class="service-icon-wrapper">
+                        <img src="ahorrar-dinero.png" alt="Ahorros" class="service-icon">
+                    </div>
+                    <h3 class="service-name">Ahorros</h3>
+                </div>
+
+                <!-- Servicio 3: Silos -->
+                <div class="service-card">
+                    <div class="service-icon-wrapper">
+                        <img src="silo.png" alt="Silos" class="service-icon">
+                    </div>
+                    <h3 class="service-name">Silos</h3>
+                </div>
+
+                <!-- Servicio 4: Almacén de Venta -->
+                <div class="service-card">
+                    <div class="service-icon-wrapper">
+                        <img src="almacenes.png" alt="Almacén de Venta" class="service-icon">
+                    </div>
+                    <h3 class="service-name">Almacén de Venta</h3>
+                </div>
+
+                <!-- Servicio 5: Préstamos -->
+                <div class="service-card">
+                    <div class="service-icon-wrapper">
+                        <img src="prest.png" alt="Préstamos" class="service-icon">
+                    </div>
+                    <h3 class="service-name">Préstamos</h3>
+                </div>
+
+                <!-- Servicio 6: Asistencia Técnica -->
+                <div class="service-card">
+                    <div class="service-icon-wrapper">
+                        <img src="asistencia_tecnica.png" alt="Asistencia Técnica" class="service-icon">
+                    </div>
+                    <h3 class="service-name">Asistencia Técnica</h3>
+                </div>
+
+                <!-- Servicio 7: Concentrados -->
+                <div class="service-card">
+                    <div class="service-icon-wrapper">
+                        <img src="concentrados.png" alt="Concentrados" class="service-icon">
+                    </div>
+                    <h3 class="service-name">Concentrados</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE CONTADORES ANIMADOS -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <!-- Columna Izquierda: Asociados -->
+            <div class="stats-column">
+                <div class="stats-counter" data-target="2600">
+                    <span class="stats-number">0</span><span class="stats-plus">+</span>
+                </div>
+                <p class="stats-label">Más de dos mil seiscientos asociados</p>
+                <div class="stats-image-wrapper">
+                    <i class="fa-solid fa-users stats-icon"></i>
+                </div>
+            </div>
+
+            <!-- Columna Derecha: Años de Servicio -->
+            <div class="stats-column">
+                <div class="stats-counter" data-target="50">
+                    <span class="stats-number">0</span><span class="stats-plus">+</span>
+                </div>
+                <p class="stats-label">Más de cincuenta años de servicio</p>
+                <div class="stats-image-wrapper">
+                    <i class="fa-solid fa-building-columns stats-icon"></i>
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+    `,
+    mision  : `
+<section class="mision-vision-container">
+    <h1>Misión y Visión</h1>
+    
+    <div class="mision-vision-grid">
+        <!-- MISIÓN - Izquierda -->
+        <div class="mv-card mv-mision">
+            <div class="mv-content">
+                <h2>Misión</h2>
+                <p>
+                    Brindar servicios de calidad, con el personal identificado con sus asociados (as),
+                    con capacidad de gestión, satisfaciendo su bienestar en base a los principios y valores cooperativos.
+                </p>
+            </div>
+            <div class="mv-image-card">
+                <img src="relleno.png" alt="Imagen Misión">
+            </div>
+        </div>
+
+        <!-- VISIÓN - Derecha -->
+        <div class="mv-card mv-vision">
+            <div class="mv-image-card">
+                <img src="vision.png" alt="Imagen Visión">
+            </div>
+            <div class="mv-content">
+                <h2>Visión</h2>
+                <p>
+                    Ser una organización con responsabilidad social y potencial humano comprometido con la juventud
+                    en el desarrollo corporativo, brindando servicios múltiples eficientes y eficaces,
+                    con actitud solidaria hacia nuestros asociados (as), la comunidad y el medio ambiente.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+      <section class="valores-section">
+    <h2 class="valores-title">Valores Cooperativos</h2>
+
+    <ul class="valores-list">
+
+        <li>
+            <img src="ayuda.png" alt="Ayuda mutua" class="valor-image">
+            <div class="valor-texto">
+                <h3>Ayuda mutua</h3>
+            </div>
+        </li>
+
+        <li>
+            <img src="igualdad.png" alt="Igualdad" class="valor-image">
+            <div class="valor-texto">
+                <h3>Igualdad</h3>
+            </div>
+        </li>
+
+        <li>
+            <img src="solidaridad.png" alt="Solidaridad" class="valor-image">
+            <div class="valor-texto">
+                <h3>Solidaridad</h3>
+            </div>
+        </li>
+
+        <li>
+            <img src="responsabilidad.png" alt="Responsabilidad" class="valor-image">
+            <div class="valor-texto">
+                <h3>Responsabilidad</h3>
+            </div>
+        </li>
+
+        <li>
+            <img src="equidad.png" alt="Equidad" class="valor-image">
+            <div class="valor-texto">
+                <h3>Equidad</h3>
+            </div>
+        </li>
+
+        <li>
+            <img src="transparencia.png" alt="Transparencia" class="valor-image">
+            <div class="valor-texto">
+                <h3>Transparencia</h3>
+            </div>
+        </li>
+
+        <li>
+            <img src="democracia.png" alt="Democracia" class="valor-image">
+            <div class="valor-texto">
+                <h3>Democracia</h3>
+            </div>
+        </li>
+
+        <li>
+            <img src="honestidad.png" alt="Honestidad" class="valor-image">
+            <div class="valor-texto">
+                <h3>Honestidad</h3>
+            </div>
+        </li>
+
+        <li>
+            <img src="cooperacion.png" alt="Cooperación" class="valor-image">
+            <div class="valor-texto">
+                <h3>Cooperación</h3>
+            </div>
+        </li>
+
+        <li>
+            <img src="cuidado.png" alt="Cuidado de los demás" class="valor-image">
+            <div class="valor-texto">
+                <h3>Cuidado de los demás</h3>
+            </div>
+        </li>
+
+    </ul>
+    </section>
+
+    <section class="principios-section">
+    <h2 class="principios-title">Principios cooperativos</h2>
+
+    <div class="principios-grid">
+        <div class="principio-bloque">
+            <img src="principio1.png" alt="Adhesión voluntaria y abierta">
+            <div class="principio-text">
+                <h3>Adhesión voluntaria y abierta</h3>
+                
+            </div>
+        </div>
+
+        <div class="principio-bloque">
+            <img src="democratico.png" alt="Control democrático">
+            <div class="principio-text">
+                <h3>Control democrático de los asociados</h3>
+                
+            </div>
+        </div>
+
+        <div class="principio-bloque">
+            <img src="economico.png" alt="Participación económica">
+            <div class="principio-text">
+                <h3>Participación económica de los miembros</h3>
+               
+            </div>
+        </div>
+
+        <div class="principio-bloque">
+            <img src="autonomia.png" alt="Autonomía e independencia">
+            <div class="principio-text">
+                <h3>Autonomía e independencia</h3>
+                
+            </div>
+        </div>
+
+        <div class="principio-bloque">
+            <img src="educacion.png" alt="Educación e información">
+            <div class="principio-text">
+                <h3>Educación, formación e información</h3>
+            </div>
+        </div>
+
+        <div class="principio-bloque">
+            <img src="cooperacion_cooperativas.png" alt="Cooperación entre cooperativas">
+            <div class="principio-text">
+                <h3>Cooperación entre cooperativas</h3>
+            </div>
+        </div>
+
+        <div class="principio-bloque">
+            <img src="ayuda_comunidad.png" alt="Compromiso con la comunidad">
+            <div class="principio-text">
+                <h3>Compromiso con la comunidad</h3>
+                
+            </div>
+        </div>
+    </div>
+    </section>
+
+       `,
+  
+    historia: `
+    <section class="hero-with-image">
+        <div class="hero-content">
+            <h1>Historia</h1>
+            <p>En 1970, y por iniciativa del voluntario del cuerpo de paz Stephen Henrick nació la cooperativa agropecuaria de servicios múltiples El Progreso R.L.
+            Este voluntario orientó a los agricultores interesados sobre filosofía, doctrina cooperativa
+            y aspectos organizativos. Durante 1970-1971 funcionó como pre-cooperativa.
+            Se constituyó el 19 de Julio de 1971 y su registro oficial se realizó el 19 de agosto de 1971.</p>
+        </div>
+        <div class="hero-image">
+            <img src="hist.png" alt="Historia de la Cooperativa">
+        </div>
+    </section>
+    <section class="board-section">
+        <div class="board-container">
+            <h2>Primer Consejo de Administración (1971)</h2>
+            <div class="board-members">
+                <div class="member">
+                    <h4>Presidente</h4>
+                    <p>Efraín Pérez</p>
+                </div>
+                <div class="member">
+                    <h4>Vicepresidente</h4>
+                    <p>Juan Bravo</p>
+                </div>
+                <div class="member">
+                    <h4>Secretario</h4>
+                    <p>Adonaí Moreno</p>
+                </div>
+                <div class="member">
+                    <h4>Tesorero</h4>
+                    <p>Manuel Martínez</p>
+                </div>
+                <div class="member">
+                    <h4>Vocal</h4>
+                    <p>Horacio Barrios</p>
+                </div>
+            </div>
+            <div class="general-manager">
+                <h4>Primer Gerente General</h4>
+                <p>Ricaurte Núñez</p>
+            </div>
+        </div>
+    </section>
+    `,
+    prestamos: `
+    <section class="hero">
+        <h1>Préstamos</h1>
+    <p>Conoce nuestras líneas de financiamiento diseñadas para apoyar al productor y al emprendedor.</p>
+</section>
+
+<section class="cards-container prestamos-cards">
+
+    <div class="card">
+        <div class="card-img">
+            <img src="cultivos.png" alt="Préstamos de cultivos">
+        </div>
+        <h3>Préstamos de cultivos</h3>
+        <p>Financiamiento para la siembra y mantenimiento de cultivos agrícolas.</p>
+        <button class="btn-card" onclick="verPrestamo(1)">Ver más</button>
+    </div>
+
+    <div class="card">
+        <div class="card-img">
+            <img src="ganaderia.png" alt="Préstamos ganaderos">
+        </div>
+        <h3>Préstamos ganaderos</h3>
+        <p>Apoyo económico para la cría, mejora y manejo del ganado.</p>
+        <button class="btn-card" onclick="verPrestamo(2)">Ver más</button>
+
+    </div>
+
+    <div class="card">
+        <div class="card-img">
+            <img src="personal.png" alt="Préstamo personal">
+        </div>
+        <h3>Préstamo personal</h3>
+        <p>Soluciones financieras para necesidades personales y familiares.</p>
+        <button class="btn-card" onclick="verPrestamo(3)">Ver más</button>
+
+    </div>
+
+    <div class="card">
+        <div class="card-img">
+            <img src="capital.png" alt="Capital de trabajo">
+        </div>
+        <h3>Capital de trabajo</h3>
+        <p>Impulsa la operación diaria de tu negocio o emprendimiento.</p>
+        <button class="btn-card" onclick="verPrestamo(4)">Ver más</button>
+
+    </div>
+
+    <div class="card">
+        <div class="card-img">
+            <img src="equipo.png" alt="Equipo agrícola">
+        </div>
+        <h3>Equipo agrícola</h3>
+        <p>Adquisición de maquinaria y herramientas para el trabajo agrícola.</p>
+        <button class="btn-card" onclick="verPrestamo(5)">Ver más</button>
+
+    </div>
+
+    <div class="card">
+        <div class="card-img">
+            <img src="comercial.png" alt="Préstamo comercial">
+        </div>
+        <h3>Préstamo comercial</h3>
+        <p>Financiamiento para actividades comerciales y empresariales.</p>
+        <button class="btn-card" onclick="verPrestamo(6)">Ver más</button>
+
+    </div>
+
+    <div class="card">
+        <div class="card-img">
+            <img src="finca.png" alt="Compra de finca">
+        </div>
+        <h3>Compra de finca</h3>
+        <p>Apoyo financiero para la adquisición de tierras productivas.</p>
+        <button class="btn-card" onclick="verPrestamo(7)">Ver más</button>
+
+    </div>
+
+    <div class="card">
+        <div class="card-img">
+            <img src="mejora_finca.png" alt="Mejora de finca">
+        </div>
+        <h3>Mejora de finca</h3>
+        <p>Financiamiento para mejoras y optimización de propiedades agrícolas.</p>
+        <button class="btn-card" onclick="verPrestamo(8)">Ver más</button>
+
+    </div>
+
+    <div class="card">
+        <div class="card-img">
+            <img src="pasto_mejorado.png" alt="Pasto mejorado">
+        </div>
+        <h3>Pasto mejorado</h3>
+        <p>Crédito para la siembra y mantenimiento de pastos de calidad.</p>
+        <button class="btn-card" onclick="verPrestamo(9)">Ver más</button>
+
+    </div>
+
+    <div class="card">
+        <div class="card-img">
+            <img src="ceba.png" alt="Ceba de cerdo y pollo">
+        </div>
+        <h3>Ceba de cerdo y pollo</h3>
+        <p>Apoyo financiero para proyectos de ceba porcina y avícola.</p>
+        <button class="btn-card" onclick="verPrestamo(10)">Ver más</button>
+
+    </div>
+
+   
+
+  
+
+    <div class="card">
+        <div class="card-img">
+            <img src="vivienda - Copy.png" alt="Préstamo de vivienda">
+        </div>
+        <h3>Préstamo de vivienda</h3>
+        <p>Financiamiento para compra, construcción o remodelación de vivienda.</p>
+        <button class="btn-card" onclick="verPrestamo(11)">Ver más</button>
+    </div>
+
+    <div class="card">
+        <div class="card-img">
+            <img src="prestamo_auto - Copy.png" alt="Préstamo para autos">
+        </div>
+        <h3>Préstamo para autos</h3>
+        <p>Financiamiento para la compra de vehículos nuevos o usados.</p>
+        <button class="btn-card" onclick="verPrestamo(12)">Ver más</button>
+    </div>
+
+    <div class="card">
+        <div class="card-img">
+            <img src="prestamo_deudas - Copy.png" alt="Consolidación de deudas">
+        </div>
+        <h3>Consolidación de deudas</h3>
+        <p>Unifica tus deudas en un solo préstamo con mejores condiciones.</p>
+        <button class="btn-card" onclick="verPrestamo(13)">Ver más</button>
+    </div>
+    </section>
+    `,
+    beneficios: `
+    <!-- HERO VERDE -->
+<section class="hero">
+    <h1>Beneficios</h1>
+  
+</section>
+
+<!-- BLOQUE BLANCO: INTRO -->
+<section class="beneficios-intro">
+    <h2>Beneficios sociales</h2>
+    <p>
+        La Cooperativa Agropecuaria El Progreso R.L. ofrece beneficios sociales
+        que fortalecen la seguridad, salud y bienestar de nuestros asociados y sus familias.
+    </p>
+</section>
+
+
+<section class="beneficios-feature">
+    <div class="beneficios-img">
+        <img src="alcancia.png" alt="Beneficios Cooperativos">
+    </div>
+
+    <div class="beneficios-text">
+        <h3>Aportaciones y Capitalización</h3>
+        <p>
+            Los asociados de la Cooperativa El Progreso R.L. realizan una aportación mensual de B/. 2.00 y una cuota única de inscripción de B/. 10.00.
+Además, se aplica una capitalización del 2% sobre las compras a crédito.
+
+La distribución de excedentes se realiza de acuerdo con las utilidades obtenidas por la Cooperativa en cada período social, conforme a sus estatutos.
+        </p>
+    </div>
+</section>
+
+<!-- BENEFICIOS - CARDS CENTRADOS -->
+<section class="beneficios-list">
+    <h2>Beneficios adicionales</h2>
+    
+    <div class="beneficios-cards">
+        <div class="beneficio-card">
+            <div class="beneficio-img">
+                <img src="anteojos.png" alt="Fondo de Lentes">
+            </div>
+            <h3>Fondo de Lentes</h3>
+            <p>B/. 50.00 por asociado cada 2 años.</p>
+             <h4> *Sujeto a reglamento </h4>
+        </div>
+
+        <div class="beneficio-card">
+            <div class="beneficio-img">
+                <img src="hospital.png" alt="Fondo de Hospitalización">
+            </div>
+            <h3>Fondo de Hospitalización</h3>
+            <p>B/. 50.00 por 3 días de hospitalización, una vez al año.</p>
+             <h4> *Sujeto a reglamento </h4>
+        </div>
+
+        <div class="beneficio-card">
+            <div class="beneficio-img">
+                <img src="iglesia.png" alt="Fondo Funerario">
+            </div>
+            <h3>Fondo Funerario</h3>
+            <p>
+                • B/. 250 por muerte de asociado<br>
+                • B/. 100 por muerte de padre o madre<br>
+            </p>
+            <h4> *Sujeto a reglamento </h4>
+        </div>
+    </div>
+</section>
+
+    `,
+    servicios: `
+<section class="hero">
+    <h1>Nuestros Servicios</h1>
+    <p>Servicios diseñados para apoyar integralmente a nuestros asociados.</p>
+</section>
+
+<section class="servicios-features-grid">
+    <article class="service-feature">
+        <img src="ahorros.png" alt="Cuentas de ahorro">
+        <div class="service-content">
+            <h3>Cuentas de ahorro</h3>
+            <p>Fomenta el hábito del ahorro con opciones accesibles para nuestros asociados.</p>
+        </div>
+    </article>
+
+    <article class="service-feature">
+        <img src="asistencia.png" alt="Asistencia técnica">
+        <div class="service-content">
+            <h3>Asistencia técnica</h3>
+            <p>Acompañamiento técnico para mejorar la productividad agropecuaria.</p>
+        </div>
+    </article>
+
+    <article class="service-feature">
+        <img src="apoyo.png" alt="Apoyo social">
+        <div class="service-content">
+            <h3>Apoyo a asociados de escasos recursos</h3>
+            <p>Programas de ayuda dirigidos a asociados en situación vulnerable.</p>
+        </div>
+    </article>
+
+    <article class="service-feature">
+        <img src="semillero.png" alt="Semillero de asociados">
+        <div class="service-content">
+            <h3>Semillero de asociados</h3>
+            <p>Impulsamos la formación de nuevos asociados y liderazgo cooperativo.</p>
+        </div>
+    </article>
+
+    <article class="service-feature">
+        <img src="acarreos.png" alt="Acarreo de materiales">
+        <div class="service-content">
+            <h3>Acarreo de materiales de construcción</h3>
+            <p>Servicio de transporte para facilitar proyectos de construcción.</p>
+        </div>
+    </article>
+
+    <article class="service-feature">
+        <img src="lentes.png" alt="Compra de anteojos">
+        <div class="service-content">
+            <h3>Apoyo para compra de anteojos</h3>
+            <p>Facilitamos apoyo visual para mejorar la calidad de vida del asociado.</p>
+        </div>
+    </article>
+</section>
+`,
+
+
+    privacidad: `
+    <section class="hero">
+        <h1>Política de Privacidad</h1>
+        <p>Tu privacidad es importante para nosotros</p>
+    </section>
+    <section class="policy-content">
+        <h2>Política de Privacidad</h2>
+        <p><strong>Última actualización: Enero 2026</strong></p>
+        
+        <h3>1. Introducción</h3>
+        <p>Cooperativa Agropecuaria El Progreso R.L. está comprometida con la protección de tu privacidad. Esta política de privacidad explica cómo recopilamos, utilizamos y protegemos tu información personal.</p>
+        
+        <h3>2. Información que Recopilamos</h3>
+        <p>Podemos recopilar información personal como tu nombre, correo electrónico, número de teléfono y otros datos que voluntariamente proporciones a través de nuestro sitio web.</p>
+        
+        <h3>3. Uso de la Información</h3>
+        <p>Utilizamos la información recopilada para:</p>
+        <ul>
+            <li>Responder a tus consultas y solicitudes</li>
+            <li>Mejorar nuestros servicios</li>
+            <li>Enviar información sobre nuestros productos y servicios</li>
+            <li>Cumplir con obligaciones legales</li>
+        </ul>
+        
+        <h3>4. Protección de Datos</h3>
+        <p>Implementamos medidas de seguridad para proteger tu información personal contra acceso no autorizado.</p>
+        
+        <h3>5. Contacto</h3>
+        <p>Si tienes preguntas sobre esta política de privacidad, puedes contactarnos a través de nuestros canales de contacto disponibles en la página de Contacto.</p>
+    </section>
+    `,
+    terminos: `
+    <section class="hero">
+        <h1>Términos y Condiciones</h1>
+        <p>Por favor, lee estos términos cuidadosamente</p>
+    </section>
+    <section class="policy-content">
+        <h2>Términos y Condiciones</h2>
+        <p><strong>Última actualización: Enero 2026</strong></p>
+        
+        <h3>1. Aceptación de Términos</h3>
+        <p>Al acceder y utilizar este sitio web, aceptas estar vinculado por estos términos y condiciones. Si no estás de acuerdo con alguna parte de estos términos, no puedes utilizar este sitio web.</p>
+        
+        <h3>2. Licencia de Uso</h3>
+        <p>Se te otorga una licencia limitada, no exclusiva y revocable para acceder y utilizar este sitio web únicamente para propósitos personales y no comerciales.</p>
+        
+        <h3>3. Uso Permitido</h3>
+        <p>No puedes:</p>
+        <ul>
+            <li>Reproducir, distribuir o transmitir contenido sin autorización</li>
+            <li>Intentar obtener acceso no autorizado al sitio web</li>
+            <li>Usar el sitio web para propósitos ilegales o dañinos</li>
+            <li>Interferir con el funcionamiento del sitio web</li>
+        </ul>
+        
+        <h3>4. Descargo de Responsabilidad</h3>
+        <p>El contenido de este sitio web se proporciona "tal cual". Cooperativa Agropecuaria El Progreso R.L. no ofrece garantías de ningún tipo, expresas o implícitas.</p>
+        
+        <h3>5. Limitación de Responsabilidad</h3>
+        <p>En ningún caso Cooperativa Agropecuaria El Progreso R.L. será responsable por daños directos, indirectos, incidentales, especiales o consecuentes.</p>
+        
+        <h3>6. Cambios en los Términos</h3>
+        <p>Nos reservamos el derecho de modificar estos términos en cualquier momento. Los cambios entrarán en vigor inmediatamente después de su publicación.</p>
+        
+        <h3>7. Contacto</h3>
+        <p>Si tienes preguntas sobre estos términos y condiciones, puedes contactarnos a través de nuestros canales de contacto.</p>
+    </section>
+    `,
+    contacto: `
+    <section class="hero">
+        <h1>Contacto</h1>
+        <p>Ubícanos y ponte en contacto con nosotros</p>
+    </section>
+    <div class="map-container-full">
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3974.8649872738636!2d-80.40443912802853!3d7.8384710627640155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa9d8d7d7d7d7d7%3A0x0!2sCooperativa%20Agropecuaria%20El%20Progreso!5e0!3m2!1ses!2spa!4v1673829486" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <footer class="contact-footer">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <img src="telefono.png" alt="Teléfono">
+                    <div>
+                        <p><strong>Teléfono</strong></p>
+                        <p>Agua Buena: 995-0029<br>Los Santos: 966-8960</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <img src="whts.png" alt="WhatsApp">
+                    <div>
+                        <p><strong>WhatsApp</strong></p>
+                        <a href="https://wa.me/50765647668" target="_blank">50765647668</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <img src="ig.png" alt="Instagram">
+                    <div>
+                        <p><strong>Instagram</strong></p>
+                        <a href="https://www.instagram.com/coop.elprogreso/" target="_blank">@coop.elprogreso</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <img src="fcbk.png" alt="Facebook">
+                    <div>
+                        <p><strong>Facebook</strong></p>
+                        <a href="https://www.facebook.com/p/Cooperativa-El-Progreso-RL-100089694457557/" target="_blank">Cooperativa El Progreso</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <img src="correo.png" alt="Correo">
+                    <div>
+                        <p><strong>E-mail</strong></p>
+                        <a href="mailto:coopelprogreso19@yahoo.es">coopelprogreso19@yahoo.es</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    `
+};
+
+// Cargar contenido al hacer clic
+document.addEventListener('DOMContentLoaded', () => {
+    // Cargar página home inicial
+    if (pages.home) {
+        document.getElementById('page-content').innerHTML = pages.home;
+    }
+    
+    // Toggle del menú desplegable
+    document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggle.classList.toggle('active');
+        });
+    });
+
+    // Cargar página al hacer clic en items del dropdown
+    document.querySelectorAll('.dropdown-menu li').forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const page = item.dataset.page;
+            if (page && pages[page]) {
+                document.getElementById('page-content').innerHTML = pages[page];
+                // Remover active de todos los items
+                document.querySelectorAll('.header-menu li').forEach(li => li.classList.remove('active'));
+                // Cerrar todos los dropdowns
+                document.querySelectorAll('.dropdown-toggle').forEach(t => t.classList.remove('active'));
+            }
+        });
+    });
+
+    // Cargar página al hacer clic en items normales
+    document.querySelectorAll('.header-menu > li:not(.dropdown-toggle)').forEach(item => {
+        item.addEventListener('click', () => {
+            // Remover active de todos los items
+            document.querySelectorAll('.header-menu li').forEach(li => li.classList.remove('active'));
+            // Agregar active al item clickeado
+            item.classList.add('active');
+            const page = item.dataset.page;
+            if (page && pages[page]) {
+                document.getElementById('page-content').innerHTML = pages[page];
+            }
+        });
+    });
+
+    // Cerrar dropdown al hacer clic en otro lado
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.dropdown-toggle').forEach(t => t.classList.remove('active'));
+    });
+});
+
+// Función para cargar políticas desde el footer
+function loadPolicies(policy) {
+    event.preventDefault();
+    if (pages[policy]) {
+        document.getElementById('page-content').innerHTML = pages[policy];
+        document.querySelectorAll('.header-menu li').forEach(li => li.classList.remove('active'));
+        document.querySelectorAll('.dropdown-toggle').forEach(t => t.classList.remove('active'));
+    }
+}
+
+// Función para cargar una página por nombre
+function loadPage(pageName) {
+    if (pages[pageName]) {
+        document.getElementById('page-content').innerHTML = pages[pageName];
+        document.querySelectorAll('.header-menu li').forEach(li => li.classList.remove('active'));
+        document.querySelectorAll('.dropdown-toggle').forEach(t => t.classList.remove('active'));
+    }
+}
+
+function verPrestamo(id) {
+    const detalles = {
+        1: {
+            titulo: "Préstamos de Cultivos",
+            descripcion: "Financiamiento para la siembra y producción agrícola.",
+            tituloSeccion: "Tipos de cultivos",
+            descripcionRequisitos: " Tomate Industrial, Arroz, Maíz, Hortalizas, Sandía, Zapallo",
+            requisitos: "<i class='fa-solid fa-check'></i> Ser asociado\n<i class='fa-solid fa-check'></i> Título de propiedad\n<i class='fa-solid fa-check'></i> Codeudores\n<i class='fa-solid fa-check'></i> Pignoración de ahorros\n<i class='fa-solid fa-check'></i> Tener buena APC\n<i class='fa-solid fa-check'></i> Sustentación de ingresos",
+            imagen: "cultivos.png"
+        },
+        2: {
+            titulo: "Préstamos Ganaderos",
+            descripcion: "Apoyo económico para ganadería bovina y otros rubros.",
+            tituloSeccion: "Tipos de préstamo ganadero:",
+            descripcionRequisitos: " Ceba, Cría, Leche",
+            requisitos:  "<i class='fa-solid fa-check'></i> Ser asociado\n<i class='fa-solid fa-check'></i> Título de propiedad\n<i class='fa-solid fa-check'></i> Codeudores\n<i class='fa-solid fa-check'></i> Pignoración de ahorros\n<i class='fa-solid fa-check'></i> Tener buena APC\n<i class='fa-solid fa-check'></i> Sustentación de ingresos",
+            imagen: "ganaderia.png"
+        },
+        3: {
+            titulo: "Préstamo Personal",
+            descripcion: "Crédito para necesidades personales y familiares.",
+            tituloSeccion: "Descripción del préstamo",
+            descripcionRequisitos: " Préstamos personales diseñados para apoyarte cuando más lo necesitas, con condiciones accesibles, tasas competitivas y un proceso ágil pensado en tu bienestar financiero.",
+            requisitos:  "<i class='fa-solid fa-check'></i> Ser asociado\n<i class='fa-solid fa-check'></i> Título de propiedad\n<i class='fa-solid fa-check'></i> Codeudores\n<i class='fa-solid fa-check'></i> Pignoración de ahorros\n<i class='fa-solid fa-check'></i> Tener buena APC\n<i class='fa-solid fa-check'></i> Sustentación de ingresos",
+            imagen: "personal.png"
+        },
+        4: {
+            titulo: "Capital de Trabajo",
+            descripcion: "Impulsa la operación diaria de tu negocio o emprendimiento.",
+            tituloSeccion: "Destino del financiamiento",
+            descripcionRequisitos: "Impulsa tu negocio con financiamiento de capital de trabajo que te permite cubrir gastos operativos, fortalecer tu flujo de caja y seguir creciendo con respaldo y confianza.",
+            requisitos:  "<i class='fa-solid fa-check'></i> Ser asociado\n<i class='fa-solid fa-check'></i> Título de propiedad\n<i class='fa-solid fa-check'></i> Codeudores\n<i class='fa-solid fa-check'></i> Pignoración de ahorros\n<i class='fa-solid fa-check'></i> Tener buena APC\n<i class='fa-solid fa-check'></i> Sustentación de ingresos",
+            imagen: "capital.png"
+        },
+        5: {
+            titulo: "Compra de equipo Agropecuario",
+            descripcion: "Financiamiento para la adquisición de maquinaria y herramientas agrícolas.",
+            tituloSeccion: "Equipos agropecuarios para impulsar tu producción",
+            descripcionRequisitos: "Financiamiento para la adquisición de equipo agropecuario que mejora la eficiencia, optimiza la producción y fortalece el desarrollo de tu actividad rural.",
+            requisitos:  "<i class='fa-solid fa-check'></i> Ser asociado\n<i class='fa-solid fa-check'></i> Título de propiedad\n<i class='fa-solid fa-check'></i> Codeudores\n<i class='fa-solid fa-check'></i> Pignoración de ahorros\n<i class='fa-solid fa-check'></i> Tener buena APC\n<i class='fa-solid fa-check'></i> Sustentación de ingresos",
+            imagen: "equipo.png"
+        },
+        6: {
+            titulo: "Préstamos Comerciales",
+            descripcion: "Crédito destinado a actividades comerciales y empresariales.",
+            tituloSeccion: "Áreas comerciales financiables",
+            descripcionRequisitos: "Financiamiento comercial pensado para expandir, invertir y fortalecer tu empresa, con soluciones flexibles que se adaptan a tus objetivos de crecimiento.",
+            requisitos:  "<i class='fa-solid fa-check'></i> Ser asociado\n<i class='fa-solid fa-check'></i> Título de propiedad\n<i class='fa-solid fa-check'></i> Codeudores\n<i class='fa-solid fa-check'></i> Pignoración de ahorros\n<i class='fa-solid fa-check'></i> Tener buena APC\n<i class='fa-solid fa-check'></i> Sustentación de ingresos",
+            imagen: "comercial.png"
+        },
+        7: {
+            titulo: "Compra de Finca",
+            descripcion: "Apoyo financiero para la adquisición de tierras productivas.",
+            tituloSeccion: "Características del financiamiento",
+            descripcionRequisitos: "Haz realidad la adquisición de tu finca con un financiamiento accesible, diseñado para apoyar proyectos productivos y asegurar una inversión sólida a largo plazo.",
+            requisitos:  "<i class='fa-solid fa-check'></i> Ser asociado\n<i class='fa-solid fa-check'></i> Título de propiedad\n<i class='fa-solid fa-check'></i> Codeudores\n<i class='fa-solid fa-check'></i> Pignoración de ahorros\n<i class='fa-solid fa-check'></i> Tener buena APC\n<i class='fa-solid fa-check'></i> Sustentación de ingresos",
+            imagen: "finca.png"
+        },
+        8: {
+            titulo: "Mejora de Finca",
+            descripcion: "Financiamiento para mejoras y optimización de propiedades agrícolas.",
+            tituloSeccion: "Características del financiamiento",
+            descripcionRequisitos: "Financiamiento destinado a la mejora y fortalecimiento de tu finca, permitiéndote invertir en infraestructura, tecnología y productividad para un crecimiento sostenible.",
+            requisitos:  "<i class='fa-solid fa-check'></i> Ser asociado\n<i class='fa-solid fa-check'></i> Título de propiedad\n<i class='fa-solid fa-check'></i> Codeudores\n<i class='fa-solid fa-check'></i> Pignoración de ahorros\n<i class='fa-solid fa-check'></i> Tener buena APC\n<i class='fa-solid fa-check'></i> Sustentación de ingresos",
+            imagen: "mejora_finca.png"
+        },
+        9: {
+            titulo: "Pasto Mejorado",
+            descripcion: "Crédito para la siembra y mantenimiento de pastos de calidad.",
+            tituloSeccion: "Características del financiamiento",
+            descripcionRequisitos: "Apoyo financiero para la implementación de pasto mejorado, optimizando la alimentación del ganado y aumentando la productividad de tu finca de forma sostenible.",
+            requisitos:  "<i class='fa-solid fa-check'></i> Ser asociado\n<i class='fa-solid fa-check'></i> Título de propiedad\n<i class='fa-solid fa-check'></i> Codeudores\n<i class='fa-solid fa-check'></i> Pignoración de ahorros\n<i class='fa-solid fa-check'></i> Tener buena APC\n<i class='fa-solid fa-check'></i> Sustentación de ingresos",
+            imagen: "pasto_mejorado.png"
+        },
+        10: {
+            titulo: "Ceba de Cerdo y Pollo",
+            descripcion: "Apoyo financiero para proyectos de ceba porcina y avícola.",
+            tituloSeccion: "Características del financiamiento",
+            descripcionRequisitos: "Financiamiento diseñado para apoyar la ceba de pollo y cerdo, cubriendo insumos y manejo productivo para lograr un crecimiento eficiente y rentable.",
+            requisitos:  "<i class='fa-solid fa-check'></i> Ser asociado\n<i class='fa-solid fa-check'></i> Título de propiedad\n<i class='fa-solid fa-check'></i> Codeudores\n<i class='fa-solid fa-check'></i> Pignoración de ahorros\n<i class='fa-solid fa-check'></i> Tener buena APC\n<i class='fa-solid fa-check'></i> Sustentación de ingresos",
+            imagen: "ceba.png"
+        },
+       
+      
+      
+      
+        11: {
+            titulo: "Préstamo de Vivienda",
+            descripcion: "Financiamiento para compra, construcción o remodelación de vivienda.",
+            tituloSeccion: "Características del financiamiento",
+            descripcionRequisitos: "Haz realidad el sueño de tu hogar con financiamiento de vivienda accesible, plazos flexibles y condiciones pensadas para brindarte seguridad y tranquilidad.",
+            requisitos:  "<i class='fa-solid fa-check'></i> Ser asociado\n<i class='fa-solid fa-check'></i> Título de propiedad\n<i class='fa-solid fa-check'></i> Codeudores\n<i class='fa-solid fa-check'></i> Pignoración de ahorros\n<i class='fa-solid fa-check'></i> Tener buena APC\n<i class='fa-solid fa-check'></i> Sustentación de ingresos",
+            imagen: "vivienda - Copy.png"
+        },
+        12: {
+            titulo: "Préstamo para Autos",
+            descripcion: "Financiamiento para la compra de vehículos nuevos o usados.",
+            tituloSeccion: "Características del financiamiento",
+            descripcionRequisitos: "Obtén el vehículo que necesitas con un préstamo para autos de fácil acceso, plazos flexibles y condiciones que se ajustan a tu presupuesto.",
+            requisitos:  "<i class='fa-solid fa-check'></i> Ser asociado\n<i class='fa-solid fa-check'></i> Título de propiedad\n<i class='fa-solid fa-check'></i> Codeudores\n<i class='fa-solid fa-check'></i> Pignoración de ahorros\n<i class='fa-solid fa-check'></i> Tener buena APC\n<i class='fa-solid fa-check'></i> Sustentación de ingresos",
+            imagen: "prestamo_auto - Copy.png"
+        },
+        13: {
+            titulo: "Consolidación de Deudas",
+            descripcion: "Unifica tus deudas en un solo préstamo con mejores condiciones.",
+            tituloSeccion: "Beneficios de la consolidación",
+            descripcionRequisitos: "Unifica tus deudas en un solo pago con mejores condiciones, facilitando el control de tus finanzas y recuperando tu estabilidad económica.",
+            requisitos:  "<i class='fa-solid fa-check'></i> Ser asociado\n<i class='fa-solid fa-check'></i> Título de propiedad\n<i class='fa-solid fa-check'></i> Codeudores\n<i class='fa-solid fa-check'></i> Pignoración de ahorros\n<i class='fa-solid fa-check'></i> Tener buena APC\n<i class='fa-solid fa-check'></i> Sustentación de ingresos",
+            imagen: "prestamo_deudas - Copy.png"
+        }
+    };
+
+    const p = detalles[id];
+    const requisitosList = p.requisitos
+        .split('\n')
+        .map(item => `<li>${item.trim()}</li>`)
+        .join('');
+
+    document.getElementById("page-content").innerHTML = `
+    <section class="hero">
+        <h1>${p.titulo}</h1>
+        <p>${p.descripcion}</p>
+    </section>
+
+    <section class="prestamo-content">
+        <h3>${p.tituloSeccion}</h3>
+        <div class="lista">
+            ${p.descripcionRequisitos.replace(/\n/g, '<br>')}
+        </div>
+
+        <div class="prestamo-requisitos-container">
+            <div class="prestamo-requisitos-imagen">
+                <img src="${p.imagen}" alt="${p.titulo}">
+            </div>
+            <div class="prestamo-requisitos-text">
+                <h3>Requisitos</h3>
+                <ul class="lista-check">
+                    ${requisitosList}
+                </ul>
+                <button class="btn-prestamo" onclick="loadPrestamos()">
+                    ← Volver a préstamos
+                </button>
+            </div>
+        </div>
+    </section>
+`;
+
+}
+
+
+function loadPrestamos() {
+    document.getElementById("page-content").innerHTML = pages.prestamos;
+}
+
+// ===== ANIMACIÓN DE CONTADORES =====
+function initStatsCounters() {
+    const counterElements = document.querySelectorAll('.stats-counter');
+    let observerInitialized = false;
+
+    // Crear un IntersectionObserver para detectar cuando la sección es visible
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            // Solo ejecutar una vez cuando la sección entra en vista
+            if (entry.isIntersecting && !observerInitialized) {
+                observerInitialized = true;
+                animateCounters(counterElements);
+                // Dejar de observar después de animar
+                observer.disconnect();
+            }
+        });
+    }, {
+        threshold: 0.3 // Activar cuando el 30% de la sección es visible
+    });
+
+    // Observar el primer contador para detectar cuando la sección es visible
+    if (counterElements.length > 0) {
+        observer.observe(counterElements[0]);
+    }
+}
+
+function animateCounters(counters) {
+    const animationDuration = 2500; // 2.5 segundos
+    const startTime = Date.now();
+
+    counters.forEach((counter) => {
+        const targetValue = parseInt(counter.getAttribute('data-target'));
+        const numberElement = counter.querySelector('.stats-number');
+
+        const animate = () => {
+            const elapsed = Date.now() - startTime;
+            const progress = Math.min(elapsed / animationDuration, 1);
+
+            // Usar easing (ease-out) para una animación suave
+            const easeProgress = 1 - Math.pow(1 - progress, 3);
+            const currentValue = Math.floor(targetValue * easeProgress);
+
+            numberElement.textContent = currentValue.toLocaleString();
+
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            } else {
+                // Asegurar que el valor final sea exacto
+                numberElement.textContent = targetValue.toLocaleString();
+            }
         };
-    </script>
+
+        animate();
+    });
+}
+
+// Inicializar contadores cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', initStatsCounters);
+
+// También ejecutar en caso de cambio dinámico de contenido (carga de página)
+const observerDynamicContent = new MutationObserver(() => {
+    const statsSection = document.querySelector('.stats-section');
+    if (statsSection && !statsSection.dataset.countersInitialized) {
+        statsSection.dataset.countersInitialized = 'true';
+        initStatsCounters();
+    }
+});
+
+observerDynamicContent.observe(document.getElementById('page-content'), {
+    childList: true,
+    subtree: true
+});
+
+</script>
+
+<!-- Script externo para funcionalidad adicional -->
+<script src="text_1.js"></script>
+
+<!-- Script del chatbot -->
+<script src="chatbot.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
