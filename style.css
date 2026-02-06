@@ -298,7 +298,7 @@ a,
 
 /* Separadores entre items del nav */
 .nav-item:not(:last-child)::after {
-    content: "•";
+    content: "";
     color: rgba(255, 255, 255, 0.8);
     position: absolute;
     right: -10px;
@@ -1059,7 +1059,7 @@ a,
     padding: 35px;
     flex: 1;
     display: flex;
-    flex-direction: column;
+    flex-direction: collapse;
     justify-content: center;
 }
 
@@ -1247,15 +1247,55 @@ a,
 .map-container-full {
     display: flex;
     flex-direction: column;
+    gap: 24px;
+}
+
+.contact-media {
+    display: flex;
+    align-items: stretch;
+    gap: 24px;
 }
 
 .map-container {
     width: 100%;
     height: auto;
+    flex: 2;
+    min-height: 360px;
 }
 
 .map-container iframe {
     border-radius: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 360px;
+    display: block;
+}
+
+.branch-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: var(--color-bg-secondary);
+    padding: 18px;
+    border-radius: 12px;
+    color: var(--color-text-primary);
+}
+
+.branch-photo {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 10px;
+    background: #e5e7eb;
+    background-size: cover;
+    background-position: center;
+}
+
+.branch-caption {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
 }
 
 .contact-footer {
@@ -1322,6 +1362,18 @@ a,
 }
 
 @media (max-width: 768px) {
+    .contact-media {
+        flex-direction: column;
+    }
+
+    .map-container {
+        min-height: 300px;
+    }
+
+    .map-container iframe {
+        min-height: 300px;
+    }
+
     .contact-footer {
         padding: 30px 15px;
     }
@@ -2947,6 +2999,13 @@ footer {
     text-align: justify;
 }
 
+.beneficios-text h4 {
+    color: var(--color-accent);
+    font-size: 18px;
+    margin: 15px 0 10px 0;
+    font-weight: 600;
+}
+
 /* Beneficios List - Cards Centrados */
 .beneficios-list {
     padding: 60px 40px;
@@ -3788,91 +3847,7 @@ footer {
     max-width: 130px;
     text-align: center;
 }
-/* ===== Galería ===== */
-.gallery-section {
-    padding: 40px 0;
-}
-.gallery-section h1 {
-    margin: 0 0 8px 0;
-    font-size: 28px;
-    color: var(--color-text-primary);
-}
-.gallery-section p {
-    margin: 0 0 20px 0;
-    color: var(--color-text-secondary);
-}
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* dos columnas por defecto */
-    gap: 22px;
-    align-items: start;
-}
-.gallery-item {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
-    text-align: center;
-}
-.gallery-item img {
-    width: 100%;
-    height: 420px; /* imágenes más grandes en 2 columnas */
-    object-fit: cover;
-    display: block;
-}
-.gallery-item figcaption {
-    padding: 12px;
-    font-size: 14px;
-    color: var(--color-text-secondary);
-}
 
-@media (min-width: 1200px) {
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-}
 
-@media (max-width: 1024px) {
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-    .gallery-item img { height: 360px; }
-}
-
-@media (max-width: 768px) {
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-    .gallery-item img { height: 300px; }
-}
-
-@media (max-width: 480px) {
-    .gallery-grid { grid-template-columns: 1fr; }
-    .gallery-item img { height: 220px; }
-}
-
-/* ===== Ajuste: mostrar todos los servicios en una sola fila ===== */
-.services-grid {
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 20px !important; /* separación moderada */
-    flex-wrap: wrap !important;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 12px;
-    max-width: 100%;
-}
-
-.services-grid .service-card {
-    width: auto;
-    flex: 0 0 auto;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.service-icon-wrapper {
-    margin-bottom: 12px; /* espacio extra alrededor del icono */
-}
-
-.service-name {
-    max-width: 130px;
-    text-align: center;
-}
 
 
