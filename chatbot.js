@@ -6,7 +6,7 @@
 const chatbotData = {
     horarios: {
         titulo: "Horario de Atención",
-        contenido: "📅 <strong>Lunes a Viernes:</strong> 7:00 AM - 4:00 PM\n📅 <strong>Sábado:</strong> 7:00 AM - 12:00 PM\n📅 <strong>Domingo:</strong> Cerrado"
+        contenido: "📅 <strong>Lunes a Viernes:</strong> 7:00 AM - 4:00 PM\n📅 <strong>Sábado:</strong> 7:00 AM - 12:00 PM\n📅 <strong>Domingo:</strong> Cerrado\n\n🎭 <strong>HORARIO ESPECIAL - CARNAVALES 2026</strong>\n\n<strong>Sucursal Agua Buena:</strong>\n📅 Sábado 14 de febrero: 7:00 AM - 12:00 MD\n📅 Lunes 16 de febrero: 7:00 AM - 12:00 MD\n📅 Martes 17 de febrero: Cerrado\n📅 Miércoles 18 de febrero: 8:00 AM - 4:00 PM\n\n<strong>Sucursal Los Santos:</strong>\n📅 Sábado 14 de febrero: 7:30 AM - 12:30 PM\n📅 Lunes 16 de febrero: Cerrado\n📅 Martes 17 de febrero: Cerrado\n📅 Miércoles 18 de febrero: 8:00 AM - 4:30 PM"
     },
     sucursales: {
         titulo: "Sucursales",
@@ -160,3 +160,4 @@ function showOption(option) {
     // Scroll al último mensaje
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
 }
+
