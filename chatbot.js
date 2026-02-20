@@ -1,17 +1,26 @@
-/* ========================
-   CHATBOT FUNCTIONALITY
-======================== */
 
-// Datos del chatbot
 const chatbotData = {
     horarios: {
         titulo: "Horario de Atención",
-        contenido: "📅 <strong>Lunes a Viernes:</strong> 7:00 AM - 4:00 PM\n📅 <strong>Sábado:</strong> 7:00 AM - 12:00 PM\n📅 <strong>Domingo:</strong> Cerrado"
-        contenido: "🏪 <strong>Agua Buena:</strong> Carretera Principal Km 2.5\n📞 Teléfono: 995-0029\n\n🏪 <strong>Los Santos:</strong> Centro Comercial El Progreso\n📞 Teléfono: 966-8960"
+        contenido: "📅 <strong>Lunes a Viernes:</strong> 7:00 AM - 4:00 PM\n" +
+                   "📅 <strong>Sábado:</strong> 7:00 AM - 12:00 PM\n" +
+                   "📅 <strong>Domingo:</strong> Cerrado"
+    },
+    sucursales: {
+        titulo: "Nuestras Sucursales",
+        contenido: "🏪 <strong>Agua Buena:</strong> Carretera Principal Km 2.5\n" +
+                   "📞 Teléfono: 995-0029\n\n" +
+                   "🏪 <strong>Los Santos:</strong> Centro Comercial El Progreso\n" +
+                   "📞 Teléfono: 966-8960"
     },
     contacto: {
         titulo: "Información de Contacto",
-        contenido: "📞 <strong>Oficina Agua Buena:</strong> 995-0029\n📞 <strong>Oficina Los Santos:</strong> 966-8960\n\n💬 <strong>WhatsApp:</strong> +507 6564-7668\n📧 <strong>E-mail:</strong> coopelprogreso19@yahoo.es\n📱 <strong>Instagram:</strong> @coop.elprogreso\n👍 <strong>Facebook:</strong> Cooperativa El Progreso"
+        contenido: "📞 <strong>Oficina Agua Buena:</strong> 995-0029\n" +
+                   "📞 <strong>Oficina Los Santos:</strong> 966-8960\n\n" +
+                   "💬 <strong>WhatsApp:</strong> +507 6564-7668\n" +
+                   "📧 <strong>E-mail:</strong> coopelprogreso19@yahoo.es\n" +
+                   "📱 <strong>Instagram:</strong> @coop.elprogreso\n" +
+                   "👍 <strong>Facebook:</strong> Cooperativa El Progreso"
     }
 };
 
@@ -157,6 +166,7 @@ function showOption(option) {
     // Scroll al último mensaje
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
 }
+
 
 
 
